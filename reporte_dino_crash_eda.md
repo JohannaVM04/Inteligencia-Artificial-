@@ -42,8 +42,16 @@
 
 ### P3 — ¿Qué tipo de obstáculo viene próximo?
 
-- Y:
+- Y: tipo_obstaculo (un arreglo), porque no existe ni uno ni dos tipos de obstaculos, y hay variaciones del mismo obstaculo 
 - X (mínimo 5 variables):
-- Granularidad:
-- Tamaño mínimo de dataset:
-- Riesgo si el dataset está mal definido:
+    1. velocidad_juego: la velocidad a la que va aumentando el juego conforme avanza, porque tambien va cambiando qué obstaculos salen
+    2. puntuacion_actual : como se van desbloquendo obstaculos desde cierto punto, entonces necesitamos esa variable para saber de qué más debe preocuparse el modelo (primero son solo cactus, luego salen los pajaros?/algo que vuela)
+    3. obstaculo_anterior: para saber la probabilidad de que salga un obstaculo igual o diferente al que acabamos de pasar
+    4. tiempo_obstaculo: cuántos frames/tiempo hay entre el obstaculo que acaba de pasar y el que vamos a pasar ahora (si es que hay)
+    5. posicion: a cuántos frames viene el siguiente obstaculo porque asi le da tiempo a decidir si debe saltar, agacharse o avanzar más
+
+- Granularidad: un evento (cada vez que aparece un obstaculo), porque si ponemos frame a frame, muchos quedarán vacios o sin informacion relevante para esta parte especifica del dataset,y lo que necesitamos es que aprenda los tipos
+
+- Tamaño mínimo de dataset: al parecer, existen 6 categorias de obstaculos, entonces deberiamos tener unos 50-100 muestras de cada categoria para que se haga un modelo básico.
+
+- Riesgo si el dataset está mal definido: medio/alto. Si solo agarramos a jugadores malos, entonces el dataset se va a llenar de puros cactus basicos (uno y de los que son bajitos), y si avanza más allá de esos puntajes (puntajes muy bajos), entonces no sabrá qué hacer si se topa con otra categoria de obstáculo
