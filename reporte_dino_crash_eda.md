@@ -10,10 +10,11 @@
     2. posicion_ y : la posicion vertical donde se encuentra el dinosaurio 
     3. velocidad_y : saber si el dinosaurio está subiendo o bajando y qué tan rápido lo está haciendo  
     4. velocidad_mapa : la velocidad a la que va el juego en ese momento 
-    5. tamaño_obstaculo: qué tan ancho/alto es el obstaculo que va a saltar o agacharse
-    6. relacionDino_obs : qué tanta distancia existe entre el dinosaurio y el obstáculo 
-    7. puntuacion_a : cuántos puntos lleva en ese momento del juego 
-    8. salta_o_no : una variable binaria para saber si el dinosaurio está saltando o no 
+    5. tamaño_obstaculo: qué tan ancho es el obstaculo que va a saltar o agachar (varios cactus continuos, por ejemplo)
+    6. altura_obstaculo: qué tan alto es el obtaculo que va a saltar o agachar
+    7. relacionDino_obs : qué tanta distancia existe entre el dinosaurio y el obstáculo 
+    8. puntuacion_a : cuántos puntos lleva en ese momento del juego 
+    9. salta_o_no : una variable binaria para saber si el dinosaurio está saltando o no 
  
     
 - Granularidad: un frame cada 16 ms, porque se necesita revisar constantemente el estado en el que está el dino para saber si el juego continua o no (si la variable de estao "vive o muere" cambió o se mantuvo igual)
@@ -26,6 +27,9 @@
 - X (mínimo 5 variables):
     1. velocidad_actual : a qué velocidad llegaste hasta ese punto del juego (al morir)
     2. distancia_total: cuál fue la distancia final que recorriste en el juego
-    3. 
+    3. num_obstaculos: cuántos obstáculos pasaste exitosamente
+    4. puntos_actuales: cuántos puntos acumulados llevas hasta ahí
+    5.  
+
 - Granularidad:
 - Tamaño mínimo de dataset:
